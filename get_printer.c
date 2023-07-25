@@ -3,6 +3,7 @@
 /**
  * get_printer - get the printer function
  * @fc: format code
+ * @type: printers type
  * Return: printer function
  */
 int (*get_printer(char fc, int type))(va_list)

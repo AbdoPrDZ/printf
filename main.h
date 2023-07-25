@@ -20,7 +20,7 @@ int (*get_printer(char fc, int type))(va_list);
 int print_char(va_list args);
 int print_string(va_list args);
 int print_percent(va_list args);
-int convert_and_print(unsigned long int n, int base, int bit_size, int upper_on_hex);
+int convert_and_print(unsigned long int n, int base, int bsize, int upper_hex);
 int print_int(va_list args);
 int print_l_int(va_list args);
 int print_h_int(va_list args);
