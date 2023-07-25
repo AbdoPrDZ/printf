@@ -32,14 +32,14 @@ int print_int(int n)
 	else
 	{
 		s = malloc(1 * sizeof(int));
-		for (i = 0; n > 0; i++, len++)
+		for (i = 0; n > 0; i++)
 		{
 			s = realloc(s, (i + 1) * sizeof(int));
 			s[i] = '0' + n % 10;
 			n = n / 10;
 		}
 
-		for (; i >= 0; i--)
+		for (; i >= 0; i--, len++)
 			_putchar(s[i]);
 
 		free(s);
