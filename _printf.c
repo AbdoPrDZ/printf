@@ -57,5 +57,5 @@ int _printf(const char *format, ...)
 	}
 	va_end(args);
 
-	return (strlen);
+	return (strlen + 1);
 }
