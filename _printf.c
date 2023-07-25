@@ -25,7 +25,6 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%' && check_fc(format[i + 1]) == 1)
@@ -35,7 +34,7 @@ int _printf(const char *format, ...)
 			{
 			case 'c':
 				strlen++;
-				putchar(va_arg(args, int));
+				_putchar(va_arg(args, int));
 				break;
 			case 's':
 				str = va_arg(args, char*);
@@ -43,7 +42,7 @@ int _printf(const char *format, ...)
 				break;
 			case '%':
 				strlen++;
-				putchar('%');
+				_putchar('%');
 				break;
 			default:
 				break;
@@ -52,11 +51,10 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			putchar(format[i]);
+			_putchar(format[i]);
 			strlen++;
 		}
 	}
-
 	va_end(args);
 
 	return (strlen);
