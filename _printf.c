@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * check_fc - check for format char if is c or s
+ * @fc: format char
+ * Return: 1 if true or 0 if false
+ */
 int check_fc(char fc)
 {
 	if (fc == 'c' || fc == 's')
@@ -7,32 +12,21 @@ int check_fc(char fc)
 	return (0);
 }
 
-int str_marge(int strlen, va_list args)
-{
-	int i = 0;
-
-	char *sub_str = va_arg(args, char*);
-
-	while (sub_str[i] != '\0')
-	{
-		putchar(sub_str[i]);
-		i++;
-	}
-
-	return (strlen + i);
-}
-
+/**
+ * _printf - print based the format and args
+ * @format: format string
+ * Return: length of printed string
+*/
 int _printf(const char *format, ...)
 {
-	int i = 0, j = 0, strlen = 0;
+	int i = 0, strlen = 0;
 	char *str;
 	char fc;
-
 	va_list args;
 
 	va_start(args, format);
 
-	while (format[i] != '\0')
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%' && check_fc(format[i + 1]) == 1)
 		{
@@ -45,13 +39,7 @@ int _printf(const char *format, ...)
 				break;
 			case 's':
 				str = va_arg(args, char*);
-				while (str[j] != '\0')
-				{
-					putchar(str[j]);
-					strlen++;
-					j++;
-				}
-
+				strlen += _printf(str);
 			default:
 				break;
 			}
@@ -62,7 +50,6 @@ int _printf(const char *format, ...)
 			putchar(format[i]);
 			strlen++;
 		}
-		i++;
 	}
 
 	va_end(args);
