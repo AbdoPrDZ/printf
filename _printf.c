@@ -7,7 +7,7 @@
  */
 int check_fc(char fc)
 {
-	if (fc == 'c' || fc == 's')
+	if (fc == 'c' || fc == 's' || fc == '%')
 		return (1);
 	return (0);
 }
@@ -40,6 +40,7 @@ int _printf(const char *format, ...)
 			case 's':
 				str = va_arg(args, char*);
 				strlen += _printf(str);
+				break;
 			case '%':
 				strlen++;
 				putchar('%');
