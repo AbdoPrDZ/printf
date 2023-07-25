@@ -17,12 +17,17 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			printer = get_printer(format[i + 1]);
-			if (printer != NULL)
-				strlen += printer(args);
+			if (format[i + 1] == 'l')
+				printer = get_printer(format[i + 2], 2);
+			else if (format[i + 1] == 'h')
+				printer = get_printer(format[i + 2], 3);
 			else
-				_putchar('%'), _putchar(format[i + 1]);
-			i++;
+				printer = get_printer(format[i + 1], 1);
+
+			if (printer != NULL)
+				strlen += printer(args), i += (format[i + 1] == 'l' || format[i + 1] == 'h') ? 2 : 1;
+			else
+				_putchar('%');
 		}
 		else
 			_putchar(format[i]), strlen++;

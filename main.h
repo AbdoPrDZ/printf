@@ -16,11 +16,31 @@ typedef struct printer
 } printer_t;
 
 int _putchar(char c);
-int (*get_printer(char fc))(va_list);
+int (*get_printer(char fc, int type))(va_list);
 int print_char(va_list args);
 int print_string(va_list args);
 int print_percent(va_list args);
+int convert_and_print(unsigned long int n, int base, int bit_size, int upper_on_hex);
 int print_int(va_list args);
+int print_l_int(va_list args);
+int print_h_int(va_list args);
+int print_bin(va_list args);
+int print_unsigned(va_list args);
+int print_l_unsigned(va_list args);
+int print_h_unsigned(va_list args);
+int print_octal(va_list args);
+int print_l_octal(va_list args);
+int print_h_octal(va_list args);
+int print_hexadecimal(va_list args);
+int print_l_hexadecimal(va_list args);
+int print_h_hexadecimal(va_list args);
+int print_upper_hexadecimal(va_list args);
+int print_l_upper_hexadecimal(va_list args);
+int print_h_upper_hexadecimal(va_list args);
+int print_s_string(va_list args);
+int print_address(va_list args);
+int print_reversed(va_list args);
+int print_rot13(va_list args);
 int _printf(const char *format, ...);
 
 #endif /* MAIN_H */
