@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
+int check_fc(char fc);
 int _printf(const char *format, ...);
 
 #endif /* MAIN_H */
