@@ -5,7 +5,7 @@
  * convert_and_print - Convert and print a number with a specified base
  * @n: Number to be converted and printed (unsigned long int)
  * @base: Base for conversion (int)
- * @bit_size: Minimum number of digits to print (int)
+ * @bsize: Minimum number of digits to print (int)
  * @upper_on_hex: Flag to print uppercase characters in hexadecimal (int)
  * Return: Length of printed text (int)
  */
@@ -19,11 +19,11 @@ int convert_and_print(unsigned long int n, int base, int bsize, int upper_hex)
 	for (i = 0; tmp > 0; i++, nlen++)
 		tmp = tmp / base;
 
-	if (bit_size > nlen)
+	if (bsize > nlen)
 	{
-		for (i = 0; i < bit_size - nlen; i++)
+		for (i = 0; i < bsize - nlen; i++)
 			_putchar('0');
-		nlen += bit_size - nlen;
+		nlen += bsize - nlen;
 	}
 
 	sn = malloc(nlen * sizeof(int));
