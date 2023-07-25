@@ -40,6 +40,10 @@ int _printf(const char *format, ...)
 			case 's':
 				str = va_arg(args, char*);
 				strlen += _printf(str);
+			case '%':
+				strlen++;
+				putchar('%');
+				break;
 			default:
 				break;
 			}
