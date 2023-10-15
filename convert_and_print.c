@@ -1,6 +1,5 @@
-#include "printf.h"
+#include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /**
  * convert_and_print - Convert and print a number with a specified base

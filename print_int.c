@@ -1,5 +1,4 @@
-#include "printf.h"
-#include <stdio.h>
+#include "main.h"
 
 /**
  * print_int - print an integer number
