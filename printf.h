@@ -43,7 +43,6 @@ int print_l_upper_hexadecimal(va_list args);
 int print_h_upper_hexadecimal(va_list args);
 int print_s_string(va_list args);
 int print_address(va_list args);
-int print_reversed(va_list args);
 int print_rot13(va_list args);
 
 int (*get_printer(char fc, int type))(va_list);

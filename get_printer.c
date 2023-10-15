@@ -24,7 +24,6 @@ int (*get_printer(char fc, int type))(va_list)
 		{'X', print_upper_hexadecimal},
 		{'S', print_s_string},
 		{'p', print_address},
-		{'r', print_reversed},
 		{'R', print_rot13},
 		{'_', NULL},
 	};

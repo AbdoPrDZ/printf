@@ -1,4 +1,5 @@
 #include "printf.h"
+#include <stdio.h>
 
 /**
  * print_int - print an integer number
@@ -10,9 +11,9 @@ int print_int(va_list args)
 	int n = va_arg(args, int);
 
 	if (n < 0)
-		_putchar('-'), n *= -1;
+		_putchar('-');
 
-	return (convert_and_print(n, 10, 0, 0) + (n < 0 ? 1 : 0));
+	return (convert_and_print(n < 0 ? -n : n, 10, 0, 0) + (n < 0 ? 1 : 0));
 }
 
 /**
@@ -25,9 +26,9 @@ int print_l_int(va_list args)
 	long int n = va_arg(args, long int);
 
 	if (n < 0)
-		_putchar('-'), n *= -1;
+		_putchar('-');
 
-	return (convert_and_print(n, 10, 0, 0) + (n < 0 ? 1 : 0));
+	return (convert_and_print(n < 0 ? -n : n, 10, 0, 0) + (n < 0 ? 1 : 0));
 }
 
 /**
@@ -40,7 +41,7 @@ int print_h_int(va_list args)
 	int n = va_arg(args, int);
 
 	if (n < 0)
-		_putchar('-'), n *= -1;
+		_putchar('-');
 
-	return (convert_and_print(n, 10, 0, 0) + (n < 0 ? 1 : 0));
+	return (convert_and_print(n < 0 ? -n : n, 10, 0, 0) + (n < 0 ? 1 : 0));
 }

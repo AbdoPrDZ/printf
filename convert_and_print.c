@@ -1,11 +1,12 @@
 #include "printf.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * convert_and_print - Convert and print a number with a specified base
  * @n: Number to be converted and printed (unsigned long int)
  * @base: Base for conversion (int)
- * @bsize: Minimum number of digits to print (int)
+ * @bsize: digitals size (int)
  * @upper: Flag to print uppercase characters in hexadecimal (int)
  * Return: Length of printed text (int)
  */
@@ -32,16 +33,18 @@ int convert_and_print(unsigned long int n, int base, int bsize, int upper)
 	{
 		d = n % base;
 		if (base == 16 && d > 9)
-			nstr[i] = (upper == 1 ? 'A' : 'a') + d - 10;
+			nstr[i] = (upper == 1 ? 'A' : 'a') + (d - 10);
 		else
 			nstr[i] = '0' + d;
 		n = n / base;
 	}
+
+	nstr[i] = '\0';
 
 	for (; i >= 0; i--, len++)
 		_putchar(nstr[i]);
 
 	free(nstr);
 
-	return (len);
+	return (nlen);
 }

@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			if (format[i + 1] == 'h')
 				printer = get_printer(format[i + 2], TYPE_SHORT);
@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 				i += (format[i + 1] == 'l' || format[i + 1] == 'h') ? 2 : 1;
 			}
 			else
-				_putchar('%');
+				_putchar('%'), len++;
 		}
 		else
 			_putchar(format[i]), len++;
