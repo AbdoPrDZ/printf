@@ -1,4 +1,4 @@
-#include "main.h"
+#include "printf.h"
 
 /**
  * print_rot13 - print a string encrypted with ROT13
@@ -9,7 +9,7 @@ int print_rot13(va_list args)
 {
 	int i;
 	char c;
-	char *s = va_arg(args, char*);
+	char *s = va_arg(args, char *);
 
 	for (i = 0; s[i] != '\0'; i++)
 	{

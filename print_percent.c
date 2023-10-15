@@ -1,4 +1,4 @@
-#include "main.h"
+#include "printf.h"
 
 /**
  * print_percent - print a percent character

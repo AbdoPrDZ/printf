@@ -1,4 +1,4 @@
-#include "main.h"
+#include "printf.h"
 
 /**
  * print_string - print a string
@@ -7,7 +7,7 @@
  */
 int print_string(va_list args)
 {
-	return (_printf(va_arg(args, char*)));
+	return (_printf(va_arg(args, char *)));
 }
 
 /**
@@ -20,7 +20,7 @@ int print_s_string(va_list args)
 	int i, c, len = 0;
 	char *s;
 
-	s = va_arg(args, char*);
+	s = va_arg(args, char *);
 
 	for (i = 0; s[i] != '\0'; i++)
 	{

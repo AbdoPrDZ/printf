@@ -1,4 +1,4 @@
-#include "main.h"
+#include "printf.h"
 
 /**
  * get_printer - get the printer function
@@ -9,7 +9,7 @@
 int (*get_printer(char fc, int type))(va_list)
 {
 	printer_t *printers;
-	int i = 0;
+	int i;
 
 	printer_t n_printers[] = {
 		{'c', print_char},
@@ -49,20 +49,16 @@ int (*get_printer(char fc, int type))(va_list)
 		{'_', NULL},
 	};
 
-	if (type == 2)
+	if (type == TYPE_LONG)
 		printers = l_printers;
-	else if (type == 3)
+	else if (type == TYPE_SHORT)
 		printers = h_printers;
 	else
 		printers = n_printers;
 
-	while (printers[i].printer != NULL)
-	{
+	for (i = 0; printers[i].printer != NULL; i++)
 		if (printers[i].fc == fc)
 			return (printers[i].printer);
-
-		i++;
-	}
 
 	return (NULL);
 }

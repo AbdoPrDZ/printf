@@ -4,6 +4,10 @@
 #include <stdarg.h>
 #include <stddef.h>
 
+#define TYPE_SIMPLE 1
+#define TYPE_LONG 2
+#define TYPE_SHORT 3
+
 /**
  * struct printer - Struct printer
  * @fc: format code
@@ -16,11 +20,11 @@ typedef struct printer
 } printer_t;
 
 int _putchar(char c);
-int (*get_printer(char fc, int type))(va_list);
+int convert_and_print(unsigned long int n, int base, int bsize, int upper);
+
 int print_char(va_list args);
 int print_string(va_list args);
 int print_percent(va_list args);
-int convert_and_print(unsigned long int n, int base, int bsize, int upper_hex);
 int print_int(va_list args);
 int print_l_int(va_list args);
 int print_h_int(va_list args);
@@ -41,6 +45,9 @@ int print_s_string(va_list args);
 int print_address(va_list args);
 int print_reversed(va_list args);
 int print_rot13(va_list args);
+
+int (*get_printer(char fc, int type))(va_list);
+
 int _printf(const char *format, ...);
 
 #endif /* MAIN_H */

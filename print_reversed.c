@@ -1,4 +1,4 @@
-#include "main.h"
+#include "printf.h"
 
 /**
  * print_reversed - print a string in reverse order
@@ -9,7 +9,7 @@ int print_reversed(va_list args)
 {
 	int i, len;
 
-	char *s = va_arg(args, char*);
+	char *s = va_arg(args, char *);
 
 	for (i = 0, len = 0; s[i] != '\0'; i++)
 		len++;

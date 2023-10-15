@@ -1,4 +1,4 @@
-#include "main.h"
+#include "printf.h"
 #include <stdlib.h>
 
 /**
@@ -6,14 +6,14 @@
  * @n: Number to be converted and printed (unsigned long int)
  * @base: Base for conversion (int)
  * @bsize: Minimum number of digits to print (int)
- * @upper_hex: Flag to print uppercase characters in hexadecimal (int)
+ * @upper: Flag to print uppercase characters in hexadecimal (int)
  * Return: Length of printed text (int)
  */
-int convert_and_print(unsigned long int n, int base, int bsize, int upper_hex)
+int convert_and_print(unsigned long int n, int base, int bsize, int upper)
 {
-	unsigned int tmp;
+	unsigned long int tmp;
 	int i, d, nlen = 0, len = 0;
-	char *sn;
+	char *nstr;
 
 	tmp = n;
 	for (i = 0; tmp > 0; i++, nlen++)
@@ -26,22 +26,22 @@ int convert_and_print(unsigned long int n, int base, int bsize, int upper_hex)
 		nlen += bsize - nlen;
 	}
 
-	sn = malloc(nlen * sizeof(int));
+	nstr = malloc(nlen * sizeof(int));
 
 	for (i = 0; n > 0; i++)
 	{
 		d = n % base;
 		if (base == 16 && d > 9)
-			sn[i] = (upper_hex == 1 ? 'A' : 'a') + d - 10;
+			nstr[i] = (upper == 1 ? 'A' : 'a') + d - 10;
 		else
-			sn[i] = '0' + d;
+			nstr[i] = '0' + d;
 		n = n / base;
 	}
 
 	for (; i >= 0; i--, len++)
-		_putchar(sn[i]);
+		_putchar(nstr[i]);
 
-	free(sn);
+	free(nstr);
 
 	return (len);
 }
