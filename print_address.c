@@ -7,9 +7,7 @@
  */
 int print_address(va_list args)
 {
-	long int n;
-
-	n = va_arg(args, long int);
+	unsigned long n = va_arg(args, unsigned long);
 
 	_putchar('0'), _putchar('x');
 

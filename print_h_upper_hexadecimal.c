@@ -7,7 +7,7 @@
  */
 int print_h_upper_hexadecimal(va_list args)
 {
-	int n = va_arg(args, int);
+	unsigned short n = va_arg(args, unsigned int);
 
 	return (convert_and_print(n, 16, 0, 1));
 }

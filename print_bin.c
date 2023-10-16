@@ -7,7 +7,7 @@
  */
 int print_bin(va_list args)
 {
-	unsigned long int n = va_arg(args, unsigned long int);
+	unsigned long n = va_arg(args, unsigned long);
 
 	return (convert_and_print(n, 2, 0, 0));
 }

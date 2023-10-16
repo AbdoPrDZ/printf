@@ -7,7 +7,7 @@
  */
 int print_char(va_list args)
 {
-	int c = va_arg(args, int);
+	unsigned long c = va_arg(args, unsigned long);
 
 	_putchar(c);
 

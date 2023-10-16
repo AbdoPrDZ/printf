@@ -11,11 +11,10 @@
  */
 int convert_and_print(unsigned long int n, int base, int bsize, int upper)
 {
-	unsigned long int tmp;
-	int i, d, nlen = 0, len = 0;
+	unsigned long int tmp = n;
+	int i, d, nlen = n == 0 ? 1 : 0;
 	char *nstr;
 
-	tmp = n;
 	for (i = 0; tmp > 0; i++, nlen++)
 		tmp = tmp / base;
 
@@ -26,24 +25,30 @@ int convert_and_print(unsigned long int n, int base, int bsize, int upper)
 		nlen += bsize - nlen;
 	}
 
-	nstr = malloc(nlen * sizeof(int));
-
-	for (i = 0; n > 0; i++)
+	if (n == 0)
+		_putchar('0');
+	else
 	{
-		d = n % base;
-		if (base == 16 && d > 9)
-			nstr[i] = (upper == 1 ? 'A' : 'a') + (d - 10);
-		else
-			nstr[i] = '0' + d;
-		n = n / base;
+		nstr = malloc(nlen * sizeof(int));
+		if (!nstr)
+			return (0);
+
+		for (i = 0; n > 0; i++)
+		{
+			d = n % base;
+			if (base == 16 && d > 9)
+				nstr[i] = (upper == 1 ? 'A' : 'a') + (d - 10);
+			else
+				nstr[i] = '0' + d;
+			n = n / base;
+		}
+
+		nstr[i] = '\0';
+		for (; i >= 0; i--)
+			_putchar(nstr[i]);
+
+		free(nstr);
 	}
-
-	nstr[i] = '\0';
-
-	for (; i >= 0; i--, len++)
-		_putchar(nstr[i]);
-
-	free(nstr);
 
 	return (nlen);
 }

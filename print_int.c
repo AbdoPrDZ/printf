@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_int - print an integer number
@@ -22,7 +23,7 @@ int print_int(va_list args)
  */
 int print_l_int(va_list args)
 {
-	long int n = va_arg(args, long int);
+	long n = va_arg(args, long);
 
 	if (n < 0)
 		_putchar('-');
@@ -37,7 +38,7 @@ int print_l_int(va_list args)
  */
 int print_h_int(va_list args)
 {
-	int n = va_arg(args, int);
+	short n = va_arg(args, int);
 
 	if (n < 0)
 		_putchar('-');

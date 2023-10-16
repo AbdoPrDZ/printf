@@ -19,7 +19,7 @@ int print_octal(va_list args)
  */
 int print_l_octal(va_list args)
 {
-	unsigned long int n = va_arg(args, unsigned long int);
+	unsigned long n = va_arg(args, unsigned long);
 
 	return (convert_and_print(n, 8, 0, 0));
 }
@@ -31,7 +31,7 @@ int print_l_octal(va_list args)
  */
 int print_h_octal(va_list args)
 {
-	int n = va_arg(args, int);
+	unsigned short n = va_arg(args, unsigned int);
 
 	return (convert_and_print(n, 8, 0, 0));
 }

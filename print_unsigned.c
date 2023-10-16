@@ -7,7 +7,7 @@
  */
 int print_unsigned(va_list args)
 {
-	unsigned int n = va_arg(args, unsigned int);
+	unsigned n = va_arg(args, unsigned);
 
 	return (convert_and_print(n, 10, 0, 0));
 }
@@ -19,7 +19,7 @@ int print_unsigned(va_list args)
  */
 int print_l_unsigned(va_list args)
 {
-	unsigned long int n = va_arg(args, unsigned long int);
+	unsigned long n = va_arg(args, unsigned long);
 
 	return (convert_and_print(n, 10, 0, 0));
 }
@@ -31,7 +31,7 @@ int print_l_unsigned(va_list args)
  */
 int print_h_unsigned(va_list args)
 {
-	unsigned int n = va_arg(args, unsigned int);
+	unsigned short n = va_arg(args, unsigned);
 
 	return (convert_and_print(n, 10, 0, 0));
 }
