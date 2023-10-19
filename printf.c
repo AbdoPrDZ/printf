@@ -9,7 +9,7 @@ int _printf(const char *format, ...)
 {
 	int i = 0, len = 0;
 	va_list args;
-	int (*printer)(va_list args);
+	int *(*printer)(const char *format, va_list args), *result;
 
 	va_start(args, format);
 
@@ -26,8 +26,9 @@ int _printf(const char *format, ...)
 
 			if (printer != NULL)
 			{
-				len += printer(args);
-				i += (format[i + 1] == 'l' || format[i + 1] == 'h') ? 2 : 1;
+				result = printer(format + i, args);
+				i += result[0];
+				len += result[1];
 			}
 			else
 				_putchar('%'), len++;

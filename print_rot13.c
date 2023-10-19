@@ -2,14 +2,15 @@
 
 /**
  * print_rot13 - print a string encrypted with ROT13
+ * @format: format text (char *)
  * @args: arguments to get a string (va_list)
  * Return: length of printed text (int)
  */
-int print_rot13(va_list args)
+int *print_rot13(const char *format, va_list args)
 {
 	int i;
-	char c;
-	char *s = va_arg(args, char *);
+	char c, *s = va_arg(args, char *);
+	(void)format;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
@@ -29,5 +30,5 @@ int print_rot13(va_list args)
 		_putchar(c);
 	}
 
-	return (i);
+	return (make_res(1, i));
 }

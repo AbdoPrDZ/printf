@@ -16,36 +16,41 @@
 typedef struct printer
 {
 	char fc;
-	int (*printer)(va_list args);
+	int *(*printer)(const char *format, va_list args);
 } printer_t;
 
 int _putchar(char c);
-int convert_and_print(unsigned long int n, int base, int bsize, int upper);
+int str2int(char *str);
+int convert_and_print_helper(long int n, int base, int bs, int pl, int dp);
+int convert_and_print(long int n, int base, int bs, int up, int pl, int dp);
+int *make_res(int fi, int pi);
 
-int print_char(va_list args);
-int print_string(va_list args);
-int print_percent(va_list args);
-int print_int(va_list args);
-int print_l_int(va_list args);
-int print_h_int(va_list args);
-int print_bin(va_list args);
-int print_unsigned(va_list args);
-int print_l_unsigned(va_list args);
-int print_h_unsigned(va_list args);
-int print_octal(va_list args);
-int print_l_octal(va_list args);
-int print_h_octal(va_list args);
-int print_hexadecimal(va_list args);
-int print_l_hexadecimal(va_list args);
-int print_h_hexadecimal(va_list args);
-int print_upper_hexadecimal(va_list args);
-int print_l_upper_hexadecimal(va_list args);
-int print_h_upper_hexadecimal(va_list args);
-int print_s_string(va_list args);
-int print_address(va_list args);
-int print_rot13(va_list args);
+int *print_char(const char *format, va_list args);
+int *print_string(const char *format, va_list args);
+int *print_percent(const char *format, va_list args);
+int *print_int(const char *format, va_list args);
+int *print_plus_int(const char *format, va_list args);
+int *print_l_int(const char *format, va_list args);
+int *print_h_int(const char *format, va_list args);
+int *print_bin(const char *format, va_list args);
+int *print_unsigned(const char *format, va_list args);
+int *print_l_unsigned(const char *format, va_list args);
+int *print_h_unsigned(const char *format, va_list args);
+int *print_octal(const char *format, va_list args);
+int *print_l_octal(const char *format, va_list args);
+int *print_h_octal(const char *format, va_list args);
+int *print_hexadecimal(const char *format, va_list args);
+int *print_l_hexadecimal(const char *format, va_list args);
+int *print_h_hexadecimal(const char *format, va_list args);
+int *print_upper_hexadecimal(const char *format, va_list args);
+int *print_l_upper_hexadecimal(const char *format, va_list args);
+int *print_h_upper_hexadecimal(const char *format, va_list args);
+int *print_s_string(const char *format, va_list args);
+int *print_address(const char *format, va_list args);
+int *print_rot13(const char *format, va_list args);
+int *print_reversed(const char *format, va_list args);
 
-int (*get_printer(char fc, int type))(va_list);
+int *(*get_printer(char fc, int type))(const char *, va_list);
 
 int _printf(const char *format, ...);
 

@@ -6,7 +6,7 @@
  * @type: printers type
  * Return: printer function
  */
-int (*get_printer(char fc, int type))(va_list)
+int *(*get_printer(char fc, int type))(const char *, va_list)
 {
 	printer_t *printers;
 	int i;
@@ -17,6 +17,7 @@ int (*get_printer(char fc, int type))(va_list)
 		{'%', print_percent},
 		{'i', print_int},
 		{'d', print_int},
+		{'+', print_plus_int},
 		{'b', print_bin},
 		{'u', print_unsigned},
 		{'o', print_octal},
@@ -25,6 +26,7 @@ int (*get_printer(char fc, int type))(va_list)
 		{'S', print_s_string},
 		{'p', print_address},
 		{'R', print_rot13},
+		{'r', print_reversed},
 		{'_', NULL},
 	};
 
